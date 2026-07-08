@@ -1,8 +1,9 @@
+#include "register.h"
 #include "led.h"
 
 int main(void)
 {
-    volatile uint32_t GPIOA_ODR = 0;
+    GPIOA_ODR = 0;
 
     led_on(&GPIOA_ODR, 1);
 
