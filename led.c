@@ -26,8 +26,20 @@ void led_show (uint32_t reg)
     for(int i=0;i<8;i++)
     {
         if(reg&(1U<<i))
-            printf("LED%d:ON\n",i);
+            printf("LED%d:ON \n",i);
         else
             printf("LED%d:OFF\n",i);    
     }
+}
+
+void led_print(uint32_t reg)
+{
+    for(int i=0;i<8;i++)
+    {
+        if(reg&(1U<<i))
+            printf("LED%d:ON \n",i);
+        else
+            printf("LED%d:OFF\n",i);
+    }
+   
 }

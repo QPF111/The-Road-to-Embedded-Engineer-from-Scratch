@@ -13,4 +13,6 @@ int led_is_on(uint32_t reg, int led);
 
 void led_show(uint32_t reg);
 
+void led_print(uint32_t reg);
+
 #endif
