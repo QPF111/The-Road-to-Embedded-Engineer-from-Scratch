@@ -32,3 +32,10 @@ void led_show (volatile uint32_t GPIO_ODR)
     }
 }
 
+int led_read(volatile uint32_t reg,int led)
+{
+    if(reg & (1U << led))
+        return 1;
+
+    return 0;
+}

@@ -13,4 +13,6 @@ int led_is_on(volatile uint32_t GPIOA_ODR, int led);
 
 void led_show(volatile uint32_t GPIOA_ODR);
 
+int led_read(volatile uint32_t reg,int led);
+
 #endif
