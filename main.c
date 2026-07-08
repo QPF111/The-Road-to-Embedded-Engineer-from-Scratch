@@ -2,13 +2,13 @@
 
 int main(void)
 {
-    uint32_t reg = 0;
+    volatile uint32_t GPIOA_ODR = 0;
 
-    led_on(&reg, 1);
+    led_on(&GPIOA_ODR, 1);
 
-    led_toggle(&reg, 5);
+    led_toggle(&GPIOA_ODR, 5);
 
-    led_show(reg);
+    led_show(GPIOA_ODR);
 
     return 0;
 }

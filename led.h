@@ -3,16 +3,14 @@
 
 #include <stdint.h>
 
-void led_on(uint32_t *reg, int led);
+void led_on(volatile uint32_t *GPIOA_ODR, int led);
 
-void led_off(uint32_t *reg, int led);
+void led_off(volatile uint32_t *GPIOA_ODR, int led);
 
-void led_toggle(uint32_t *reg, int led);
+void led_toggle(volatile uint32_t *GPIOA_ODR, int led);
 
-int led_is_on(uint32_t reg, int led);
+int led_is_on(volatile uint32_t GPIOA_ODR, int led);
 
-void led_show(uint32_t reg);
-
-void led_print(uint32_t reg);
+void led_show(volatile uint32_t GPIOA_ODR);
 
 #endif

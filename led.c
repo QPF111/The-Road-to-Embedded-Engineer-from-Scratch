@@ -1,45 +1,34 @@
 #include <stdio.h>
 #include "led.h"
 
-void led_on (uint32_t *reg,int led)
+void led_on (volatile uint32_t *GPIO_ODR,int led)
 {
-    *reg |= (1U<<led);
+    *GPIO_ODR |= (1U<<led);
 }
 
-void led_off (uint32_t *reg,int led)
+void led_off (volatile uint32_t *GPIO_ODR,int led)
 {
-    *reg &=~ (1U<<led);
+    *GPIO_ODR &=~ (1U<<led);
 }
 
-void led_toggle (uint32_t *reg,int led)
+void led_toggle (volatile uint32_t *GPIO_ODR,int led)
 {
-    *reg ^= (1U<<led);
+    *GPIO_ODR ^= (1U<<led);
 }
 
-int led_is_on (uint32_t reg,int led)
+int led_is_on (volatile uint32_t GPIO_ODR,int led)
 {
-    return (reg & (1U<<led))!=0;
+    return (GPIO_ODR & (1U<<led))!=0;
 }
 
-void led_show (uint32_t reg)
+void led_show (volatile uint32_t GPIO_ODR)
 {
     for(int i=0;i<8;i++)
     {
-        if(reg&(1U<<i))
+        if(GPIO_ODR&(1U<<i))
             printf("LED%d:ON \n",i);
         else
             printf("LED%d:OFF\n",i);    
     }
 }
 
-void led_print(uint32_t reg)
-{
-    for(int i=0;i<8;i++)
-    {
-        if(reg&(1U<<i))
-            printf("LED%d:ON \n",i);
-        else
-            printf("LED%d:OFF\n",i);
-    }
-   
-}
