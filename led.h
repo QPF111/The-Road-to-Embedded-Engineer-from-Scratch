@@ -2,17 +2,18 @@
 #define LED_H
 
 #include <stdint.h>
+#include "register.h"
 
-void led_on(volatile uint32_t *GPIOA_ODR, int led);
+void gpio_init_output(GPIO_TypeDef *gpio, int pin);
 
-void led_off(volatile uint32_t *GPIOA_ODR, int led);
+void led_on(GPIO_TypeDef *gpio, int pin);
 
-void led_toggle(volatile uint32_t *GPIOA_ODR, int led);
+void led_off(GPIO_TypeDef *gpio, int pin);
 
-int led_is_on(volatile uint32_t GPIOA_ODR, int led);
+void led_toggle(GPIO_TypeDef *gpio, int pin);
 
-void led_show(volatile uint32_t GPIOA_ODR);
+int  led_read(GPIO_TypeDef *gpio, int pin);
 
-int led_read(volatile uint32_t reg,int led);
+void led_show(GPIO_TypeDef *gpio);
 
-#endif
+#endif // LED_H

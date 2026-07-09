@@ -3,13 +3,14 @@
 
 int main(void)
 {
-    GPIOA_ODR = 0;
+gpio_init_output(&GPIOA, 1);
 
-    led_on(&GPIOA_ODR, 1);
+led_on(&GPIOA, 1);
+led_show(&GPIOA);
 
-    led_toggle(&GPIOA_ODR, 5);
+led_toggle(&GPIOA, 1);
+led_show(&GPIOA);
 
-    led_show(GPIOA_ODR);
-
-    return 0;
+led_off(&GPIOA, 1);
+led_show(&GPIOA);
 }

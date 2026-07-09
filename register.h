@@ -3,10 +3,15 @@
 
 #include <stdint.h>
 
-extern volatile uint32_t GPIOA_ODR;
+  typedef struct {
 
-extern volatile uint32_t GPIOA_MODER;
+    volatile uint32_t ODR;
 
-extern volatile uint32_t GPIOA_IDR;
+    volatile uint32_t MODER;
 
-#endif
+    volatile uint32_t IDR;
+                 } GPIO_TypeDef;
+    
+    extern GPIO_TypeDef GPIOA;
+
+ #endif
