@@ -4,16 +4,11 @@
 #include <stdint.h>
 #include "register.h"
 
-void gpio_init_output(GPIO_TypeDef *gpio, int pin);
-
-void led_on(GPIO_TypeDef *gpio, int pin);
-
-void led_off(GPIO_TypeDef *gpio, int pin);
-
-void led_toggle(GPIO_TypeDef *gpio, int pin);
-
-int  led_read(GPIO_TypeDef *gpio, int pin);
-
-void led_show(GPIO_TypeDef *gpio);
+void led_init(void);
+void led_on(void);
+void led_off(void);
+void led_toggle(void);
+void led_show(void);
+int led_read(void);
 
 #endif // LED_H

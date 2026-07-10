@@ -3,14 +3,14 @@
 
 int main(void)
 {
-gpio_init_output(&GPIOA, 1);
+led_init();
 
-led_on(&GPIOA, 1);
-led_show(&GPIOA);
+led_on();
+led_show();
 
-led_toggle(&GPIOA, 1);
-led_show(&GPIOA);
+led_toggle();
+led_show();
 
-led_off(&GPIOA, 1);
-led_show(&GPIOA);
+led_off();
+led_show();
 }

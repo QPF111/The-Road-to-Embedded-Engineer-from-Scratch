@@ -1,48 +1,45 @@
 #include <stdio.h>
 #include "led.h"
 
-void led_on(GPIO_TypeDef *gpio, int pin)
+#define LED_GPIO (&GPIOA)
+#define LED_PIN 1U
+
+void led_on(void)
 {
-    gpio->ODR |= (1U << pin);
+    LED_GPIO->ODR |= (1U << LED_PIN);
 }
 
-void led_off(GPIO_TypeDef *gpio, int pin)
+void led_off(void)
 {
-    gpio->ODR &= ~(1U << pin);
+    LED_GPIO->ODR &= ~(1U << LED_PIN);
 }
 
-void led_toggle (GPIO_TypeDef *gpio, int pin)
+void led_toggle(void)
 {
-    gpio->ODR ^= (1U << pin);
+    LED_GPIO->ODR ^= (1U << LED_PIN );
 }
 
-int led_is_on (GPIO_TypeDef *gpio, int pin)
-{
-    return (gpio->ODR & (1U << pin)) != 0;
-}
 
-void led_show (GPIO_TypeDef *gpio)
+void led_show (void)
 {
     for(int i=0;i<8;i++)
     {
-        if(gpio->ODR&(1U<<i))
-            printf("LED%d:ON \n",i);
+        if(LED_GPIO->ODR&(1U<<i))
+            printf("LED%d : ON \n",i);
         else
-            printf("LED%d:OFF\n",i);    
+            printf("LED%d : OFF\n",i);    
     }
 }
 
-int led_read(GPIO_TypeDef *gpio, int pin)
+int led_read(void)
 {
-    if(gpio->ODR & (1U << pin))
+    if(LED_GPIO->ODR & (1U << LED_PIN))
         return 1;
     else
         return 0;
 }
 
-void gpio_init_output(GPIO_TypeDef *gpio, int pin)
+void led_init(void)
 {
-    gpio->MODER &= ~(3U << (pin * 2));
-
-    gpio->MODER |=  (1U << (pin * 2));
+    gpio_init_output(LED_GPIO, LED_PIN);
 }

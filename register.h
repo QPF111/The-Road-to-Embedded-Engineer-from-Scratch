@@ -4,10 +4,10 @@
 #include <stdint.h>
 
   typedef struct {
-
-    volatile uint32_t ODR;
-
+    
     volatile uint32_t MODER;
+    
+    volatile uint32_t ODR;    
 
     volatile uint32_t IDR;
                  } GPIO_TypeDef;
