@@ -4,11 +4,22 @@
 #include <stdint.h>
 #include "register.h"
 
-void led_init(void);
-void led_on(void);
-void led_off(void);
-void led_toggle(void);
-void led_show(void);
-int led_read(void);
+void led_init(LED_Device *led);
+void led_on(LED_Device *led);
+void led_off(LED_Device *led);
+void led_toggle(LED_Device *led);
+void led_show(LED_Device *led);
+int led_read(LED_Device *led);
+
+typedef struct
+{
+    GPIO_TypeDef *gpio;
+    uint8_t pin;
+
+} LED_Device;
+
+extern LED_Device led_power;
+
+extern LED_Device led_wifi;
 
 #endif // LED_H

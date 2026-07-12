@@ -14,4 +14,6 @@
     
     extern GPIO_TypeDef GPIOA;
 
+    extern GPIO_TypeDef GPIOB;
+
  #endif
